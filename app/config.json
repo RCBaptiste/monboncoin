@@ -1,0 +1,9 @@
+{
+    "name" : "monBonCoin",
+        "dbName" : "monboncoin",
+        "user" : "root",
+        "password" : "",
+        "host" : "localhost",
+
+    "basesite" : "localhost/coursphp/monboncoin/public/"
+}
