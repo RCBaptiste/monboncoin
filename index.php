@@ -1,5 +1,5 @@
 <?php
-
+use Models\UsersModel;
 use Models\AnnoncesModel;
 
 require_once('autoloader.php');
@@ -33,7 +33,45 @@ require_once('autoloader.php');
 //AnnoncesModel::create($data);
 
 // Test de la méthdoe Update()
-$data = [2,"tondeuse à gazon", "max 250m², moteur electrique", 185, "tondeuse.jpg", 4];
-AnnoncesModel::update($data);
-$id = [4];
-AnnoncesModel::delete($id);
+//$data = [2,"tondeuse à gazon", "max 250m², moteur electrique", 185, "tondeuse.jpg", 4];
+//AnnoncesModel::update($data);
+//$id = [4];
+//AnnoncesModel::delete($id);
+
+//Test de la méthode findAll Users 
+//var_dump(UsersModel::findAll());
+
+//Test de la méthode findById Users
+//$id = [2];
+//var_dump(UsersModel::findById($id));
+
+// Test de le méthode findByLogin Users
+
+//$login = ['admin@admin.fr'];
+
+// 2 méthodes
+// 1ère méthode
+//$login = ['admin@admin.fr'];
+//var_dump(UsersModel::findByLogin($login));
+
+// Ou
+
+//var_dump(UsersModel::findByLogin(['admin@admin.fr']));
+//Test de la méthode findBy() users
+//$user = ['login' =>['admin@admin.fr']];
+// $user = ['idUser' => [1]];
+//var_dump(UsersModel::findBy($user));
+
+
+//Test de la méthode create() users
+$pass = password_hash("1234", PASSWORD_DEFAULT);
+//$data = ['random@gmail.com', $pass, 'Random', 'Random', 'random', 95100, 'Random'];
+//UsersModel::create($data);
+
+//Test de la méthode update() users
+//$data = ['relut.baptiste@gmail.com', $pass, 'Baptiste', 'Relut', '4 rue du clos de montbreau', 77240, 'Cesson', 2];
+//UsersModel::update($data);
+
+// test de la méthode delete() users
+//$id = [4];
+//UsersModel::delete($id);
