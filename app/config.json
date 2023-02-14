@@ -5,5 +5,5 @@
         "password" : "",
         "host" : "localhost",
 
-    "basesite" : "localhost/coursphp/monboncoin/public/"
+    "baseSite" : "/coursphp/monboncoin/public/"
 }
