@@ -1,6 +1,7 @@
 <?php
 use Models\UsersModel;
 use Models\AnnoncesModel;
+use Models\CategoriesModel;
 
 require_once('autoloader.php');
 
@@ -64,7 +65,7 @@ require_once('autoloader.php');
 
 
 //Test de la méthode create() users
-$pass = password_hash("1234", PASSWORD_DEFAULT);
+//$pass = password_hash("1234", PASSWORD_DEFAULT);
 //$data = ['random@gmail.com', $pass, 'Random', 'Random', 'random', 95100, 'Random'];
 //UsersModel::create($data);
 
@@ -75,3 +76,28 @@ $pass = password_hash("1234", PASSWORD_DEFAULT);
 // test de la méthode delete() users
 //$id = [4];
 //UsersModel::delete($id);
+
+// test de la méthode findAll() catégories
+
+
+//var_dump(CategoriesModel::findById([2]));
+
+//echo "<hr>";
+
+//var_dump(CategoriesModel::findAll());
+
+//echo "<hr>";
+
+
+//var_dump(CategoriesModel::findByTitle(['véhicule']));
+
+// Test de la méthode create() categories
+
+//CategoriesModel::create(['jouets']);
+
+// Test de la méthode update() categories
+
+
+//CategoriesModel::update(['Jeux vidéo', 6]);
+
+//CategoriesModel::delete([6]);
