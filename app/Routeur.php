@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Controllers\AnnoncesController;
+use Controllers\Controller;
+
 class Routeur{
     public function app(){
         // On teste le routeur
@@ -9,21 +12,22 @@ class Routeur{
 
         // Récupérer l'url
         $request = $_SERVER['REQUEST_URI'];
-        echo $request;
+        //echo $request;
         // On supprime "/coursphp/monboncoin/public de $request
         $nb = strlen(SITEBASE);
         $request = substr($request, $nb);
-        echo "<hr>";
+        //echo "<hr>";
         //echo $request;
         // On casse $request pour récupérer uniquement la route demandée et pas les param GET
-        $request = explode("?", $request);
-        $request = $request[0];
+        //$request = explode("?", $request);
+        //$request = $request[0];
         //echo $request;
 
         // On définit les routes du projet
         switch ($request){
             case '':
-                echo "Vous êtes sur la page d'accueil";
+                //echo "Vous êtes sur la page d'accueil";
+                $accueil = AnnoncesController::accueil();
                 break;
             case 'annonces':
                 echo "Vous êtes sur la page annonces";

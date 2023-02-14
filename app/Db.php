@@ -10,7 +10,7 @@ class Db{
     static function getDb(){
         if(!self::$db){
             try{
-                $config = file_get_contents('App/config.json');
+                $config = file_get_contents('../App/config.json');
                 $config = json_decode($config);
                 self::$db = new PDO("mysql:host=" . $config->host . ";dbname=" . $config->dbName, $config->user, $config->password, array(PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION));
 
