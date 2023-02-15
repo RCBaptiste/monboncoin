@@ -2,6 +2,8 @@
 
 use App\Routeur;
 //Ce fichier est le point d'entrée de notre site
+
+session_start();
 // Création d'une constante pour l'url de base du site
 $config = file_get_contents('../App/config.json');
 $config = json_decode($config);

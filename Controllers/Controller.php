@@ -20,12 +20,21 @@ class Controller{
         require_once ROOT .'/Views/layout.php';
     }
 
-
-    public function test(){
-        $this->render('test',[
-            'title' => 'page de test',
-        ]);
+    public static function security(){
+        if(!empty($_POST)){
+            foreach ($_POST as $key => $value) {
+                htmlspecialchars($key);
+        
+            }
+        }
     }
+
+
+    //public function test(){
+    //    $this->render('test',[
+    //        'title' => 'page de test',
+    //    ]);
+    //}
 }
 
 

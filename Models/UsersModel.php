@@ -39,7 +39,7 @@ class UsersModel extends Db
      * Attend un login d'utilisateur
      * $param array $login[string]
      */
-    /*
+    
     public static function findByLogin(array $login)
     {
         $request = "SELECT * FROM users WHERE login = ?";
@@ -48,7 +48,6 @@ class UsersModel extends Db
 
         return $response->fetch(PDO::FETCH_ASSOC);
     }
-    */
 
     /*
     public static function findByIdOrLogin($id, $login){
