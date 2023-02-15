@@ -19,8 +19,8 @@ class Routeur{
         //echo "<hr>";
         //echo $request;
         // On casse $request pour récupérer uniquement la route demandée et pas les param GET
-        //$request = explode("?", $request);
-        //$request = $request[0];
+        $request = explode("?", $request);
+        $request = $request[0];
         //echo $request;
 
         // On définit les routes du projet
@@ -33,7 +33,11 @@ class Routeur{
                 echo "Vous êtes sur la page annonces";
                 break;
             case 'annonceDetail':
-                echo "Vous êtes sur la page détail de l'annonce";
+                //echo "Vous êtes sur la page détail de l'annonce";
+                if (isset($_GET['id'])){
+                    $id = (int)$_GET['id'];// (int) fait que seuls les nombres entiers sont acceptés. Autrement une erreur aura lieu
+                    AnnoncesController::detail($id);
+                }
                 break;
             case 'annonceAjout':
                 echo "page de création d'annonce";

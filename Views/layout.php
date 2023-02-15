@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +14,12 @@
     <!-- Pour rendre le title dynamique -->
     <title><?= $title ?></title>
 </head>
+
 <body>
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+            <a href=""><img src=" <?= SITEBASE ?>/img/logo.png" class="logo" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,17 +36,19 @@
             </div>
         </div>
     </nav>
-
+    <main>
         <!-- Titre Dynamique-->
         <h1 class="m-5 text-center">
-        <?= $title ?>
-    </h1>
-    <!--Ici nous récupérons les données à afficher-->
-    <div class="container">
-        <?= $content //Affichage des données ?>  <!-- < ? = equivaut à < ? php echo -->
-        
-    </div>
+            <?= $title ?>
+        </h1>
+        <!--Ici nous récupérons les données à afficher-->
+        <div class="container">
+            <?= $content //Affichage des données 
+            ?> <!-- < ? = equivaut à < ? php echo -->
 
+        </div>
+    </main>
     <footer class=" m-5 text-center">Baptiste &copy; 2023</footer>
 </body>
+
 </html>
