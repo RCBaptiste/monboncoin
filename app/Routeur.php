@@ -30,7 +30,14 @@ class Routeur{
                 $accueil = AnnoncesController::accueil();
                 break;
             case 'annonces':
-                echo "Vous êtes sur la page annonces";
+                //echo "Vous êtes sur la page annonces";
+                
+                if(isset($_GET['order']) && isset($_GET['idCategorie'])){
+                    $order = $_GET['order'];
+                    $categorie = $_GET['idCategorie'];
+                    AnnoncesController::annonces($order, $categorie);
+                }
+                AnnoncesController::annonces();// Toujours placer l'appel de la fonction après la condition s'il y en a une
                 break;
             case 'annonceDetail':
                 //echo "Vous êtes sur la page détail de l'annonce";

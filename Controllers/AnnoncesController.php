@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Models\AnnoncesModel;
+use Models\CategoriesModel;
 
 class AnnoncesController extends Controller{
     // Ma première méthode pour afficher les dernières annonces mises en ligne sur la page d'accueil
@@ -25,8 +26,26 @@ class AnnoncesController extends Controller{
         }
         self::render('annonces/detail', [
             'title' => 'Détails de l\'annonce',
-            'annonce' => $annonce
-        
+            'annonce' => $annonce,
+            'msg' => $msg
+        ]);
+    }
+
+    // Methode pour afficher toutes les annonces
+    public static function annonces($order=null, $categorie=null){
+        if($categorie == null){
+            
+            $annonces = AnnoncesModel::findAll($order);
+        }else{
+            //die();
+            $annonces = AnnoncesModel::findByIdCat([$categorie]);
+        }
+        // Récupération des catégories
+        $categories = CategoriesModel::findAll();
+        self::render('annonces/annonces',[
+            'title' => "Les annonces de mon bon coin",
+            'annonces' => $annonces,
+            'categories' => $categories
         ]);
     }
 }
