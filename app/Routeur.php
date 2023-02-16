@@ -52,7 +52,19 @@ class Routeur{
                 AnnoncesController::annonceAjout();
                 break;
             case 'annonceModif':
-                echo "page de modification d'annonce";
+                //echo "page de modification d'annonce";
+                if(isset($_SESSION['user'])){
+                    $id = (int)$_GET['id'];
+                    $updateAnnonce = AnnoncesController::annonceModif($id);
+                    
+                }else{
+                    
+                    header('Location: connexion');
+                    //var_dump($_SESSION['user']);
+                    
+                    
+                }
+                
                 break;
             case 'annonceSuppr':
                 echo "page de suppression d'annonce";
