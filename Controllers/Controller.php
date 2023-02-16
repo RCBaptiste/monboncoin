@@ -23,7 +23,7 @@ class Controller{
     public static function security(){
         if(!empty($_POST)){
             foreach ($_POST as $key => $value) {
-                htmlspecialchars($key);
+                $_POST[$key] = htmlspecialchars(trim($value));
         
             }
         }
