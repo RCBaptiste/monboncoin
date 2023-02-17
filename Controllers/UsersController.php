@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Models\AnnoncesModel;
 use Models\UsersModel;
 
 class UsersController extends Controller
@@ -108,6 +109,24 @@ class UsersController extends Controller
         self::render('users/connexion', [
             'title' => 'Connexion',
             'errMsg' => $errMsg
+        ]);
+    }
+
+    //Méthode profil
+    public static function profil(){
+        // Test du role de l'utilisateur
+        if($_SESSION['user']['role'] == 1){
+            // Je suis admin donc je dois voir toutes les annonces
+            $annonces = AnnoncesModel::findAll();
+        }else{
+            // Uniquement les annonces de l'utilisateur connecté
+            $user = [$_SESSION['user']['id']];
+            $annonces = AnnoncesModel::findByUSer($user);
+        }
+
+        self::render('users/profil',[
+            'title' => "Votre profil",
+            'annonces' => $annonces
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <div class="container">
     <?php if ($errMsg) : ?>
-        <div class="alert alert-dismissible alert-danger">
+        <div class="alert alert-dismissible alert-info">
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <h4>Warning !</h4>
             <p> <?= $errMsg ?></p>

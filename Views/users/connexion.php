@@ -27,7 +27,7 @@ if (isset($_SESSION['messages'])) {
                 <input type="text" name="login" id="login" placeholder="Votre email" class="form-control">
                 <div class="col-12 col-md-4 w-100">
                     <label for="password">Mot de passe</label>
-                    <input type="text" name="password" id="password">
+                    <input type="password" name="password" id="password">
                 </div>
                 <button class="btn btn-primary my-2 w-100">Connexion</button>
                 <div class="text-center">Pas encore de compte ? <a href="inscription" class="">S'inscrire</a></div>

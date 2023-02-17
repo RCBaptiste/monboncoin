@@ -148,9 +148,10 @@ class AnnoncesController extends Controller{
                 }
                 // Executer la requête
                 $annonceModif = AnnoncesModel::update($data);
+                header('Location:'. SITEBASE);
 
                 }elseif(!empty($_POST)){
-                        $errMsg = "Merci de remplir tous els champs a part la photo";
+                        $errMsg = "Merci de remplir tous les champs a part la photo";
                 }
 
         }else{
@@ -163,4 +164,53 @@ class AnnoncesController extends Controller{
             'errMsg' => $errMsg
         ]);
     }
+
+    //Méthode de suppression d'annonce
+    public static function annonceSup($id){
+        $errMsg = "";
+        $msg = "";
+        // Augmenter la sécurité lors de la suppression
+        //Si utilisateur appuie sur supprimer 
+        //Alors chercher l'id de l'annonce
+        $annonce = AnnoncesModel::findById([$id]);
+        //Si existante, la sélectionner
+        //Si l'annonce n'existe, l'utilisateur est renvoyé vers son profil
+        //Sinon envoyer un message d'erreur
+        !$annonce ? header('Location: profil'): null;
+        if($_GET['operation'] == 'delete'){
+            AnnoncesModel::delete([$id]);
+            header('Location: profil');
+        }
+//Supprimer -> Supprimer l'annonce et laisser un message
+//Anuller -> Retourner à sur la page de profil
+
+
+    //Si vrai, renvoyer vers la page suppression de l'annonce(ou demander une confirmation)
+            self::render('annonces/Sup',[
+                'title' => "Suppression de l'annonce",
+                'annonce' => $annonce,
+                //Afficher un message d'alerte
+                'msg' => $msg,
+                'errMsg' => 'Etes vous sûr de vouloir supprimer cette annonce ?'
+            ]);
+            
+        
+
+        //AnnoncesModel::delete([$id]);
+        //header('Location: profil');
+        //$_SESSION['messages'] = 'Annonce supprimée';
+    }
+    
 }
+
+//Méthode de suppression d'annonce
+/*
+* Si utilisateur appuie sur supprimer
+* Alors chercher l'id de l'annonce
+* Si existante, la sélectionner
+* Sinon envoyer un message d'erreur
+* Si vrai, renvoyer vers la page suppression de l'annonce ou demander une confirmation
+* Afficher un message d'alerte
+* Supprimer -> Supprimer l'annonce et laisser un message
+* Anuller -> Retourner à sur la page de profil
+ */
